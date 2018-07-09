@@ -71,7 +71,7 @@ deploy:
   type: git
   # repo: https://github.com/russellmars/russellmars.github.io.git
   repo: git@github.com:russellmars/russellmars.github.io.git
-  branch: gh-pages
+  branch: master
 
 # swiftype站内搜索的key
 swiftype_key: obSA9H9BoiM58jQ6Vp4V
