@@ -4,6 +4,10 @@ date: 2018-06-27 11:21:48
 tags: [vs code, editor]
 ---
 
+vs code 开发优质插件推荐
+
+<!--more-->
+
 ### vs code 插件推荐
 
 #### Auto Close Tag
