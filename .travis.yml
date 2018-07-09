@@ -28,7 +28,7 @@ after_script:
 
 branches:
   only:
-    - master
+    - source
 env:
  global:
    - GH_REF: github.com/russellmars/russellmars.github.io.git
