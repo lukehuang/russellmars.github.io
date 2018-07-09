@@ -3,6 +3,7 @@ title: vs code 使用
 date: 2018-06-27 11:21:48
 tags: [vs code, editor]
 ---
+
 ### vs code 插件推荐
 
 #### Auto Close Tag
@@ -17,11 +18,20 @@ tags: [vs code, editor]
 #### Bracket Pair Colorizer
 > 用不同的颜色标记嵌套括号
 
+#### code Runner
+> 运行不同语言的代码
+
 #### Code Spell Checker
 > 代码单词拼写检查
 
+#### Dart
+> Dart 语言支持
+
 #### Debugger for Chrome
 > 可在chrome里调试
+
+#### Docker
+> Docker相关支持插件
 
 #### EditorConfig for VS Code
 > editorConfig 插件
@@ -29,8 +39,17 @@ tags: [vs code, editor]
 #### ESLint
 > eslint 代码检查
 
+#### Flutter
+> Flutter开发
+
 #### Git History
 > git 历史纪录查询
+
+#### gitignore
+> .gitignore文件支持
+
+#### Go
+> Go 语言支持
 
 #### HTML CSS Support
 > html css 开发相关
@@ -56,6 +75,12 @@ tags: [vs code, editor]
 #### Path Intellisense
 > 文件路径提示
 
+#### Prettier - Code formatter
+> prettier 格式化插件
+
+#### Python
+> python 语言支持
+
 #### Settings Sync
 > 设置同步
 
@@ -64,6 +89,9 @@ tags: [vs code, editor]
 
 #### Vetur
 > vue 开发插件
+
+#### vscode wxml
+> 小程序.wxml文件支持
 
 ### 用户设置
 ``` json
@@ -95,5 +123,6 @@ tags: [vs code, editor]
     "markdown.preview.breaks": true,
     "markdown.preview.fontSize": 18
 }
+
 
 ```

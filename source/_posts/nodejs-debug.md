@@ -4,9 +4,13 @@ date: 2018-07-09 16:06:31
 tags:
 ---
 
-nodejs的调试方式有很多，可以看[官方文档](https://nodejs.org/en/docs/guides/debugging-getting-started/)，我英文不好，只研究了几种常用的。
+nodejs的调试方式有很多，可以看[官方文档](https://nodejs.org/en/docs/guides/debugging-getting-started/)，我英文不好，只研究了几种个人比较常用的。
++ console.log
++ chrome devtools
++ vs code launch
++ vs code attach
 
-总结一下我个人比较常用的调试方法
+<!--more-->
 
 ## console.log
 console.log 对于任何一个web者来说都不陌生，不详细说明

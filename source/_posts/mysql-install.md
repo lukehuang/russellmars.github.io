@@ -3,6 +3,8 @@ title: mysql 免安装版
 date: 2018-06-26 21:45:40
 tags: [mysql]
 ---
+mysql 免安装版本的安装使用教程
+<!--more-->
 
 ### 下载
 去到mysql的[下载页面](https://dev.mysql.com/downloads/)，找到并打开 `MySQL Community Server (GPL)

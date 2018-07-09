@@ -3,7 +3,10 @@ title: vue 开发遇到的问题
 date: 2018-06-29 10:27:16
 tags: [vue, web]
 ---
-对做vue相关开发时遇到的一些问题的总结
+总结在做对vue相关开发时遇到的一些问题，包括vue，vuex，vue router nuxt等。
+
+<!--more-->
+
 ### vue
 
 ### vuex

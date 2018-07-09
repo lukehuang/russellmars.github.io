@@ -4,6 +4,10 @@ date: 2018-06-30 22:12:07
 tags: [nodejs]
 ---
 nodejs 的安装方法
++ windows 安装
++ linux 里的两种安装方式
+
+<!--more-->
 
 ### windows
 去官网里[下载](https://nodejs.org/en/download/)安装文件，然后安装就可以了，安装步骤都是next就可以了

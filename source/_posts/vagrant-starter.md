@@ -4,6 +4,9 @@ date: 2018-06-29 20:18:33
 tags: [vagrant, linux, 开发环境]
 ---
 
+vagrant 的简单安装和使用，搭建统一开发平台。
+<!--more-->
+
 ### 安装
 + 下载安装[VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 + 下载安装[vagrant](https://www.vagrantup.com/downloads.html)
