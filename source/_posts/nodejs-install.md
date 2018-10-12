@@ -37,8 +37,8 @@ node -v
 #### package-manager 安装
 官网的下载页面提供了[Installing Node.js via package manager](https://nodejs.org/en/download/package-manager/)的地址，例如我这里是centos7.0_64的系统，在页面里找到相应的安装方式既可，只需两条命令
 ```
-sudo yum -y install nodejs
 curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+sudo yum -y install nodejs
 ```
 还有install build tools 的可选安装
 ```
