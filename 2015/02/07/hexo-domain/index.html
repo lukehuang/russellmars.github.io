@@ -1,0 +1,828 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="搭好博客了，一直想着有个自己的域名就好了，虽然github会给你一个二级域名，但是如果有一个自己专门的域名，应该会特别帅。故折腾了一个下午，并给自己的博客弄好了自己的域名。下面说说怎么购买域名的，以及设置DNS。">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="购买域名，设置DNS">
+<meta property="og:url" content="http://russellmars.github.io/2015/02/07/hexo-domain/index.html">
+<meta property="og:site_name" content="二十几岁的你">
+<meta property="og:description" content="搭好博客了，一直想着有个自己的域名就好了，虽然github会给你一个二级域名，但是如果有一个自己专门的域名，应该会特别帅。故折腾了一个下午，并给自己的博客弄好了自己的域名。下面说说怎么购买域名的，以及设置DNS。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-createAccount.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-selectDomain.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-checkoutCart.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-billingInfo.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-setDns.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-launchDomain.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-addNameserver.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-adddomain.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-addrecord.jpg">
+<meta property="og:updated_time" content="2018-10-17T02:01:34.265Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="购买域名，设置DNS">
+<meta name="twitter:description" content="搭好博客了，一直想着有个自己的域名就好了，虽然github会给你一个二级域名，但是如果有一个自己专门的域名，应该会特别帅。故折腾了一个下午，并给自己的博客弄好了自己的域名。下面说说怎么购买域名的，以及设置DNS。">
+<meta name="twitter:image" content="http://russellmars.github.io/image/2015/02/hexo-domain/hexo-domain-createAccount.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://russellmars.github.io/2015/02/07/hexo-domain/"/>
+
+
+
+
+
+  <title> 购买域名，设置DNS | 二十几岁的你 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0cb80430be042d0e64ac47b4e4886fb9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">二十几岁的你</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">没有梦想，何必远方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'obSA9H9BoiM58jQ6Vp4V','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://russellmars.github.io/2015/02/07/hexo-domain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Russell Mars">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/picture/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二十几岁的你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                购买域名，设置DNS
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-02-07T11:58:40+00:00">
+                2015-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搭好博客了，一直想着有个自己的域名就好了，虽然github会给你一个二级域名，但是如果有一个自己专门的域名，应该会特别帅。故折腾了一个下午，并给自己的博客弄好了自己的域名。下面说说怎么购买域名的，以及设置DNS。<br><a id="more"></a></p>
+<p>##购买域名<br>在网上了解了下，大家也都推荐买域名去<a href="https://www.godaddy.com/" target="_blank" rel="noopener">狗爹</a>,看了下，买一个.com的域名差不多需要$10/year，折合人民币65块钱的样子，我考虑的是买主机送域名的方案，这个也就$12/year，还送一个域名，也就多2刀，况且还可以玩玩主机什么的。好了下面说说怎么买域名的(直接购买域名的方式)</p>
+<h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>先在godaddy里注册账号，如图</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-createAccount.jpg" alt="注册账号"></p>
+<h3 id="选域名并购买"><a href="#选域名并购买" class="headerlink" title="选域名并购买"></a>选域名并购买</h3><p>注册号账号以后，在首页的文本框中输入你想买的域名，如：hellohzhy，然后点击后面的按钮search就好了，一会页面会出现search结果，会有各种后缀的域名供你选择，我用的是.com的，点击相应域名后的select，然后continue to cart，这样你选择的域名就会出现这你的购物车当中了，如图</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-selectDomain.jpg" alt="选择域名"></p>
+<p>按着指导一直点击差不多是下一步的按钮就好了。值得注意的是，我们一般是一年一年的买，而默认是两年的，修改下就好了</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-checkoutCart.jpg" alt="修改cart"></p>
+<p>然后就填写个人信息</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-billingInfo.jpg" alt="填写信息"></p>
+<p>最后选择选择支付方式就好了，我用的是支付宝的，话说国外网站也支持支付宝，蛮厉害的，赞一个 ^_^</p>
+<p>##设置DNS<br>买后域名后，就要设置dns了，在狗爹的网站中进入你的account就能看到如下信息，点击launch</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-setDns.jpg" alt="accountInfo"></p>
+<p>在域名列表中找到你想设置的域名，然后点击后面的下拉列表，选择set Nameservers，进入设置</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-launchDomain.jpg" alt="launchdomain"></p>
+<p>add nameserver中，添加两个DNSPod的DNS短地址，然后save就好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f1g1ns1.dnspod.net</span><br><span class="line">f1g1ns2.dnspod.net</span><br></pre></td></tr></table></figure></p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-addNameserver.jpg" alt="addNameserver"></p>
+<p>dns的设置就完成了。</p>
+<p>##添加域名与ip地址的映射<br>设置好dns后，你需要再设置域名与ip地址的映射。<br>首先，去<a href="https://www.dnspod.cn/" target="_blank" rel="noopener">dnspod.cn</a>注册账号,然后在我的域名中添加你申请的域名，如图</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-adddomain.jpg" alt="adddomain"></p>
+<p>然后添加记录，即你想用这个域名映射的ip地址，选择记录类型时，A代表使用ip地址，CNAME代表已有的另一个域名，我选择的是cname，在记录值中填写对应的ip或者域名，然后保存就好了。</p>
+<p><img src="/image/2015/02/hexo-domain/hexo-domain-addrecord.jpg" alt="adddomain"></p>
+<p>接下来就是最后一步了，进入你的博客的文件夹的目录，找到 source 文件夹，创建名为 CNAME 的文件，然后添加你的域名就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hzhyiyy.com</span><br></pre></td></tr></table></figure></p>
+<p>如果想使用<a href="http://www.hzhyiyy.com形式，CNAME文件中相应地变为www.hzhyiyy.com即可。" target="_blank" rel="noopener">www.hzhyiyy.com形式，CNAME文件中相应地变为www.hzhyiyy.com即可。</a><br>这样就好了，部署一下你网站，然后在浏览器里输入hzhyiyy.com试试看<br>有可能要等待一段时间才能生效，所以不要着急 ^_^</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/06/hexo-instruction/" rel="next" title="hexo博客搭建">
+                <i class="fa fa-chevron-left"></i> hexo博客搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/09/hexo-optimizing/" rel="prev" title="hexo博客优化">
+                hexo博客优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/image/picture/avatar.jpg"
+               alt="Russell Mars" />
+          <p class="site-author-name" itemprop="name">Russell Mars</p>
+           
+              <p class="site-description motion-element" itemprop="description">世界很美，而你正好有空！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册账号"><span class="nav-number">1.</span> <span class="nav-text">注册账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选域名并购买"><span class="nav-number">2.</span> <span class="nav-text">选域名并购买</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Russell Mars</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
