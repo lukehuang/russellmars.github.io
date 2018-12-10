@@ -8,7 +8,7 @@ tags: [vs code, editor]
 还有推荐三款编程字体
 + Operator Mono：非常好看的编程字体
 + Source Code Pro：adobe公司出品的等宽编程字体（在没使用Operator Mono之前，一直使用这个）
-+ Microsoft YaHei UI：这个不多说，经典，window自带
++ Microsoft YaHei UI：这个不多说，经典，windows自带
 
 字体使用的时候需要把字体文件都放到`C:\Windows\Fonts\`文件夹下，系统会默认归档同一个字体的字体文件。
 `editor.fontFamily`的值设置为`Operator Mono, Source Code Pro, Menlo, Consolas, 'Courier New', monospace, Microsoft YaHei UI`，找到`C:\Users\用户名\.vscode\extensions\zhuangtongfa.material-theme-2.17.7\themes\OneDark-Pro.json`，
