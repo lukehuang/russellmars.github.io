@@ -7,26 +7,30 @@ cache:
     - node_modules
 
 # S: Build Lifecycle
+before_install:
+ - npm install hexo-cli -g
+
 install:
   - npm install
 
-before_script:
-  - npm install hexo-cli -g
+# before_script:
+#   - npm install hexo-cli -g
 
 script:
   - hexo generate
 
-after_script:
-  - cd public
-  - git init
-  - git config user.name "russellmars"
-  - git config user.email "russellmars@sina.com"
-  - git add .
-  - git commit -m "update blog"
-  # - git push --force --quiet "https://${account}:${password}@${GH_REF}" master
-# E: Build LifeCycle
-
+# before_deploy:
+#   - cd public
+#   - git init
+#   - git config user.name "russellmars"
+#   - git config user.email "russellmars@sina.com"
+#   - git add .
+#   - git commit -m "update blog"
+  
 deploy:
+  local-dir: public
+  email: russellmars@sina.com
+  name: russellmars
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
@@ -34,6 +38,17 @@ deploy:
   target-branch: master
   on:
     branch: master
+
+# after_script:
+#   - cd public
+#   - git init
+#   - git config user.name "russellmars"
+#   - git config user.email "russellmars@sina.com"
+#   - git add .
+#   - git commit -m "update blog"
+  # - git push --force --quiet "https://${account}:${password}@${GH_REF}" master
+# E: Build LifeCycle
+
 branches:
   only:
     - source
