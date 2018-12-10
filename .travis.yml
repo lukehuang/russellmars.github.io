@@ -25,11 +25,13 @@ after_script:
   - git commit -m "update blog"
   # - git push --force --quiet "https://${account}:${password}@${GH_REF}" master
 # E: Build LifeCycle
+
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: false
+  target-branch: master
   on:
     branch: master
 branches:
