@@ -49,9 +49,9 @@ deploy:
   # - git push --force --quiet "https://${account}:${password}@${GH_REF}" master
 # E: Build LifeCycle
 
-branches:
-  only:
-    - source
+# branches:
+#   only:
+#     - source
 env:
  global:
    - GH_REF: github.com/russellmars/russellmars.github.io.git
