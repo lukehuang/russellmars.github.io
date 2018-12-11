@@ -35,13 +35,9 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: false
-  project-name: russellmars.github.io
   target-branch: master
   on:
-    repo: russellmars/russellmars.github.io
-    branches:    # ← new!
-      only:      # ← new!
-        - master # ← new!
+    branch: source
 
 # after_script:
 #   - cd public
@@ -56,6 +52,6 @@ deploy:
 # branches:
 #   only:
 #     - source
-env:
- global:
-   - GH_REF: github.com/russellmars/russellmars.github.io.git
+# env:
+#  global:
+#    - GH_REF: github.com/russellmars/russellmars.github.io.git
