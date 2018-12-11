@@ -41,7 +41,7 @@ deploy:
     repo: russellmars/russellmars.github.io
     branches:    # ← new!
       only:      # ← new!
-        - source # ← new!
+        - master # ← new!
 
 # after_script:
 #   - cd public
