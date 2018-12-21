@@ -6,12 +6,22 @@ tags: [html5, history, nginx]
 现代化的web应用中多数采用 SPA（Single Page Application）的方式来编写网站或者应用，当你的 SPA 的路由方式使用的是html5的history模式的时候，需要服务器端做相应的配置，nginx 配置如下：
 ``` conf
 server {
-  location /FE/blog {
-    add_header "Cache-Control" "no-cache";
-    alias /data/static/FE/blog;
+  location /erp-farm-admin {
+    alias /home/erp-farm-admin;
     index index.html index.htm;
-    try_files $uri $uri/ /FE/blog/index.html;
+
+    if ($request_filename ~ .*.(html|htm)$) {
+      add_header Cache-Control no-cache,no-store,must-revalidate;
+    }
+
+    if ($request_filename ~ .*.(js|css|jpe?g|png|gif)$) {
+      add_header Cache-Control public,max-age=31536000;
+      add_header expires 30d;
+    }
+
+    try_files $uri $uri/ /erp-farm-admin/index.html;
   }
+
 }
 
 ```
