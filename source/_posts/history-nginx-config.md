@@ -25,4 +25,4 @@ server {
 }
 
 ```
-假设我们有一个叫blog的项目，访问路径大概是`http://domain.com/FE/blog/`，而我们的blog项目的部署路径在`/data/static/FE/blog`下。加上这段配置，项目的路由就与普通的页面访问一致了。
+假设我们有一个叫blog的项目，访问路径大概是`http://domain.com/erp-farm-admin/`，而我们的blog项目的部署路径在`/home/erp-farm-admin`下。加上这段配置，项目的路由就与普通的页面访问一致了。
