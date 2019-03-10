@@ -1,0 +1,857 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="hexo,优化,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="弄了这么多，想必大家还是很好奇，hexo博客不也就能写写东西么，还能干嘛。其实这个问题，在之前我也是有提过的。我的答案就是自由博客，我的理解就是，你想干嘛就干嘛。这篇文章主要说说hexo博客的一些优化，或者是美观，个性化。">
+<meta name="keywords" content="hexo,优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo博客优化">
+<meta property="og:url" content="http://russellmars.github.io/2015/02/09/hexo-optimizing/index.html">
+<meta property="og:site_name" content="二十几岁的你">
+<meta property="og:description" content="弄了这么多，想必大家还是很好奇，hexo博客不也就能写写东西么，还能干嘛。其实这个问题，在之前我也是有提过的。我的答案就是自由博客，我的理解就是，你想干嘛就干嘛。这篇文章主要说说hexo博客的一些优化，或者是美观，个性化。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-optimizing/hexo-optimizing-music.jpg">
+<meta property="og:image" content="http://russellmars.github.io/image/picture/scrollup.png">
+<meta property="og:image" content="http://russellmars.github.io/image/2015/02/hexo-optimizing/hexo-optimizing-biaoqing.jpg">
+<meta property="og:updated_time" content="2019-03-10T02:18:00.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo博客优化">
+<meta name="twitter:description" content="弄了这么多，想必大家还是很好奇，hexo博客不也就能写写东西么，还能干嘛。其实这个问题，在之前我也是有提过的。我的答案就是自由博客，我的理解就是，你想干嘛就干嘛。这篇文章主要说说hexo博客的一些优化，或者是美观，个性化。">
+<meta name="twitter:image" content="http://russellmars.github.io/image/2015/02/hexo-optimizing/hexo-optimizing-music.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://russellmars.github.io/2015/02/09/hexo-optimizing/">
+
+
+
+
+
+  <title> hexo博客优化 | 二十几岁的你 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0cb80430be042d0e64ac47b4e4886fb9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">二十几岁的你</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">没有梦想，何必远方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'obSA9H9BoiM58jQ6Vp4V','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://russellmars.github.io/2015/02/09/hexo-optimizing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Russell Mars">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/picture/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二十几岁的你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                hexo博客优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-02-09T02:39:55+00:00">
+                2015-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>弄了这么多，想必大家还是很好奇，hexo博客不也就能写写东西么，还能干嘛。其实这个问题，在之前我也是有提过的。我的答案就是自由博客，我的理解就是，你想干嘛就干嘛。这篇文章主要说说hexo博客的一些优化，或者是美观，个性化。<br><a id="more"></a></p>
+<h2 id="一、修改默认日期显示格式"><a href="#一、修改默认日期显示格式" class="headerlink" title="一、修改默认日期显示格式"></a>一、修改默认日期显示格式</h2><p>在hexo博客中，默认的日期显示格式是英文的。像这个样子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Feb 9 2015</span><br></pre></td></tr></table></figure></p>
+<p>如果你想改成下面这个样子的，那你就就要按照我接下来说的去做了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2015年02月9日</span><br></pre></td></tr></table></figure></p>
+<p>在你的博客的根目录下找到<code>_config.yml</code>文件，打开并找到<code>date_format</code>的关键字，样子大概如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_format: MMM D YYYY</span><br></pre></td></tr></table></figure></p>
+<p>你需要把它修改成这样就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_format: YYYY年MM月D日</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、在导航栏中添加关于"><a href="#二、在导航栏中添加关于" class="headerlink" title="二、在导航栏中添加关于"></a>二、在导航栏中添加关于</h2><p>在根目录中打开<code>git bash</code>，输入如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这个命令会这<code>source</code>目录下生成<code>about/index.md</code>的文件夹和文件。编辑这个<code>index.md</code>文件，里面的内容随便写，也就是你的关于页面的内容，写法就跟写平常的博客一样。<br>然后在在<code>themes/light/_config.yml</code>中，找到<code>menu</code>关键字，大概如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  Home: /</span><br><span class="line">  Archives: /archives</span><br></pre></td></tr></table></figure></p>
+<p>把上面的内容替换如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  首页: /</span><br><span class="line">  存档: /archives</span><br><span class="line">  关于: /about</span><br></pre></td></tr></table></figure></p>
+<h2 id="三、添加友情链接"><a href="#三、添加友情链接" class="headerlink" title="三、添加友情链接"></a>三、添加友情链接</h2><p>在<code>themes/light/layout/_widget</code>中新建一个文件，名字叫做<code>link.ejs</code>,在里面输入如下内容。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"widget tag"</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>友情链接<span class="tag">&lt;/<span class="name">h3</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"entry"</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://blog.csdn.net/hzhyiiyy"</span> <span class="attr">title</span>=<span class="string">"hzhyiyy"</span>&gt;</span>恒者亨也的博客<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="name">ul</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在文件<code>themes/light/_config.yml</code>中找到<code>widgets</code>，大概如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">widgets:</span><br><span class="line">- search</span><br><span class="line">- category</span><br><span class="line">- tag</span><br></pre></td></tr></table></figure></p>
+<p>把<code>link</code>添加进来即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">widgets:</span><br><span class="line">- search</span><br><span class="line">- category</span><br><span class="line">- tag</span><br><span class="line">- link</span><br></pre></td></tr></table></figure></p>
+<h2 id="四、添加其他的widget"><a href="#四、添加其他的widget" class="headerlink" title="四、添加其他的widget"></a>四、添加其他的widget</h2><p>大家可以看到，我的博客里还有微博show，网易云之类的widget，其实做法和第三步中的添加友情链接是一个道理。我就一起说了。<br>首先，在<code>themes/light/layout/_widget</code>中新建连个文件<code>weibo.ejs</code>,<code>music.ejs</code><br><code>weibo.ejs</code>里要添加的内容去<a href="http://app.weibo.com/tool/weiboshow" target="_blank" rel="noopener">这里</a>找。<br><code>music.ejs</code>里添加的内容去<a href="http://music.163.com/" target="_blank" rel="noopener">这里</a>，找一个你喜欢的单曲或者歌单，或者自己的歌单都可以，你会发现有 <em>生成音乐外链</em> 的字眼,点击进去你就明白了，<br><img src="/image/2015/02/hexo-optimizing/hexo-optimizing-music.jpg" alt="音乐外链"></p>
+<p><code>weibo.ejs,music.ejs</code>的内容都编辑好了以后，还是需要去文件<code>themes/light/_config.yml</code>中配置，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">widgets:</span><br><span class="line">- search</span><br><span class="line">- category</span><br><span class="line">- tag</span><br><span class="line">- link</span><br><span class="line">- music</span><br><span class="line">- weibo</span><br></pre></td></tr></table></figure></p>
+<h2 id="五、添加“多说”评论"><a href="#五、添加“多说”评论" class="headerlink" title="五、添加“多说”评论"></a>五、添加“多说”评论</h2><p>一篇博客必不可少需要有评论来相互交流，第三方评论插件，我也是听别人介绍说“多说”还不错，我也是使用的这个插件。</p>
+<h3 id="1-获得“多说”代码"><a href="#1-获得“多说”代码" class="headerlink" title="1.获得“多说”代码"></a>1.获得“多说”代码</h3><p>首先，去<a href="http://duoshuo.com/" target="_blank" rel="noopener">多说</a>的官网少注册一个账号，然后会获得以下代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 多说评论框 start --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ds-thread"</span> <span class="attr">data-thread-key</span>=<span class="string">"请将此处替换成文章在你的站点中的ID"</span> <span class="attr">data-title</span>=<span class="string">"请替换成文章的标题"</span> <span class="attr">data-url</span>=<span class="string">"请替换成文章的网址"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说评论框 end --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> duoshuoQuery = &#123;<span class="attr">short_name</span>:<span class="string">"hzhyiyy"</span>&#125;;</span></span><br><span class="line"><span class="javascript">	(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span></span><br><span class="line"><span class="javascript">		ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">		ds.src = (<span class="built_in">document</span>.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span></span><br><span class="line"><span class="javascript">		ds.charset = <span class="string">'UTF-8'</span>;</span></span><br><span class="line"><span class="javascript">		(<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] </span></span><br><span class="line"><span class="javascript">		 || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span></span><br><span class="line"><span class="undefined">	&#125;)();</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说公共JS代码 end --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-替换模板"><a href="#2-替换模板" class="headerlink" title="2.替换模板"></a>2.替换模板</h3><p>在你的博客目录下找到文件<code>themes\light\layout\_partial\comment.ejs</code>（主题不同可能不一样）,将里面的代码全部替换成以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (page.comments)&#123; %&gt;  </span><br><span class="line">&lt;section id=&quot;comment&quot;&gt;  </span><br><span class="line">//第一步中在“多说”中获得的代码 </span><br><span class="line">&lt;/section&gt;  </span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注意，还需修改其中的代码，如下<br><strong>将<code>data-thread-key=&quot;请将此处替换成文章在你的站点中的ID&quot;</code> 替换成<code>data-thread-key=&quot;&lt;%= page.path %&gt;&quot;</code></strong><br><strong>将<code>data-title=&quot;请替换成文章的标题&quot;</code> 替换成 <code>data-title=&quot;&lt;%= page.title %&gt;&quot;</code></strong><br><strong>将<code>data-url=&quot;请替换成文章的网址&quot;</code> 替换成 <code>data-url=&quot;&lt;%= page.permalink %&gt;&quot;</code></strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">page.comments</span>)&#123; %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"comment"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 多说评论框 start --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ds-thread"</span> <span class="attr">data-thread-key</span>=<span class="string">"&lt;%= page.path %&gt;"</span> <span class="attr">data-title</span>=<span class="string">"&lt;%= page.title %&gt;"</span> <span class="attr">data-url</span>=<span class="string">"&lt;%= page.permalink %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说评论框 end --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> duoshuoQuery = &#123;<span class="attr">short_name</span>:<span class="string">"hzhyiyy"</span>&#125;;</span></span><br><span class="line"><span class="javascript">  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span></span><br><span class="line"><span class="javascript">    ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">    ds.src = (<span class="built_in">document</span>.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span></span><br><span class="line"><span class="javascript">    ds.charset = <span class="string">'UTF-8'</span>;</span></span><br><span class="line"><span class="javascript">    (<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] </span></span><br><span class="line"><span class="javascript">     || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span></span><br><span class="line"><span class="undefined">  &#125;)();</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 多说公共JS代码 end --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-添加配置"><a href="#3-添加配置" class="headerlink" title="3.添加配置"></a>3.添加配置</h3><p>在主目录下的文件<code>_config.yml</code>中增加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#duoshuo</span><br><span class="line">duoshuo_shortname: hzhyiyy</span><br></pre></td></tr></table></figure></p>
+<p>并且将该文件里面的url改成你的网站地址，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: http://hzhyiyy.github.com</span><br></pre></td></tr></table></figure></p>
+<p>或者是(由于我已经申请了域名，当然是用上面的url也ok)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: http://hzhyiyy.com</span><br></pre></td></tr></table></figure></p>
+<p><em>做完上述步骤，博客里基本就能使用评论功能了</em></p>
+<h2 id="六、分享功能"><a href="#六、分享功能" class="headerlink" title="六、分享功能"></a>六、分享功能</h2><p>hexo默认会自带分享的功能，但都是分享到国外的网站，国内的朋友当然是能分享到qq空间，微博等社交网站，所以这里稍微修改了下hexo的分享功能，步骤如下：</p>
+<ul>
+<li>在文件夹<code>themes\light\layout\_partial\post</code>中新建文件<code>baidushare.ejs</code>.</li>
+<li>去<a href="http://share.baidu.com/" target="_blank" rel="noopener">百度分享</a>注册，并获得你的分享代码，并copy到baidushare.ejs文件中.</li>
+<li>在文件<code>themes\light\layout\_partial\article.ejs</code>中找到<code>&lt;%- partial(&#39;post/share&#39;) %&gt;</code>,并把它替换成<code>&lt;%-partial(&#39;post/baidushare&#39;)%&gt;</code></li>
+</ul>
+<h2 id="七、换机器"><a href="#七、换机器" class="headerlink" title="七、换机器"></a>七、换机器</h2><p>如果你换电脑了，但是还在用hexo博客写东西，那只能是copy你的blog源代码了，我虽然还没用换个电脑写博客，但还是有考虑过这个问题的。我的做法是用百度云自动备份我的blog文件夹。当然也是可以提交到代码托管服务器的。</p>
+<h2 id="八、回到顶部按钮"><a href="#八、回到顶部按钮" class="headerlink" title="八、回到顶部按钮"></a>八、回到顶部按钮</h2><p>一般情况下，主题里面是没有回到顶部的按钮的，所以自能是自己加上这段代码了。<br>在<code>themes\light\layout\_partial</code>中新建文件<code>totop.ejs</code>,内容如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"totop"</span> <span class="attr">style</span>=<span class="string">"position:fixed;bottom:5em;right:1em;cursor: pointer;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">title</span>=<span class="string">"返回顶部"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/img/scrollup.png"</span>/&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后在<code>themes\light\source\js</code>中新建文件<code>totop.js</code>,内容如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line"><span class="comment">// When to show the scroll link</span></span><br><span class="line"><span class="comment">// higher number = scroll link appears further down the page</span></span><br><span class="line"><span class="keyword">var</span> upperLimit = <span class="number">1000</span>;</span><br><span class="line"><span class="comment">// Our scroll link element</span></span><br><span class="line"><span class="keyword">var</span> scrollElem = $(<span class="string">'#totop'</span>);</span><br><span class="line"><span class="comment">// Scroll to top speed</span></span><br><span class="line"><span class="keyword">var</span> scrollSpeed = <span class="number">500</span>;</span><br><span class="line"><span class="comment">// Show and hide the scroll to top link based on scroll position</span></span><br><span class="line">scrollElem.hide();</span><br><span class="line">$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> scrollTop = $(<span class="built_in">document</span>).scrollTop();</span><br><span class="line"><span class="keyword">if</span> ( scrollTop &gt; upperLimit ) &#123;</span><br><span class="line">$(scrollElem).stop().fadeTo(<span class="number">300</span>, <span class="number">1</span>); <span class="comment">// fade back in</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">$(scrollElem).stop().fadeTo(<span class="number">300</span>, <span class="number">0</span>); <span class="comment">// fade out</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Scroll to top animation on click</span></span><br><span class="line">$(scrollElem).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">$(<span class="string">'html, body'</span>).animate(&#123;<span class="attr">scrollTop</span>:<span class="number">0</span>&#125;, scrollSpeed); <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure></p>
+<p>最后，在文件 <code>themes\light\layout\_partial\after_footer.ejs</code> 的最后加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(&apos;totop&apos;) %&gt;</span><br><span class="line">&lt;script src=&quot;&lt;%- config.root %&gt;js/totop.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>图片在这里<img src="/image/picture/scrollup.png" alt="totop"></p>
+<h2 id="九、添加标签评论"><a href="#九、添加标签评论" class="headerlink" title="九、添加标签评论"></a>九、添加标签评论</h2><p>如图所示<br><img src="/image/2015/02/hexo-optimizing/hexo-optimizing-biaoqing.jpg" alt="biaoqing"><br>这组表情，我也是偶然间发现的，觉得蛮有意思就弄了下，弄好之后发现这个东西设计的不够合理，你用了就知道，手机体验不太好，而且看起来可以连点，实际上是不行的。<br>我就大概说说怎么弄的吧。</p>
+<ol>
+<li>去搜狐<a href="http://changyan.sohu.com/login?ru=%2Flabs%2Femoji" target="_blank" rel="noopener">畅言</a> 里注册一个账号。</li>
+<li>找到实验室里的评论表情这个选项。然后你会获得一段代码（每个人的不一样）。</li>
+<li><code>themes\light\layout\_partial\post</code>里新建一个文件<code>biaoqing.ejs</code>,里面的内容就是在第二步中获得的代码。</li>
+<li><code>themes\light\layout\_partial\article.ejs</code>中的合适位置，将<code>&lt;%- partial(&#39;post/biaoqing&#39;) %&gt;</code> 加上就好了，我把它放在了<code>&lt;%- partial(&#39;post/category&#39;) %&gt;</code>的前面</li>
+<li>其实这时候是还没后表情的，回到畅言实验室里，在你获得代码的那个地方有个配置信息。看一下你就明白了，选择表情就好了，配置宽度，还有把追加评论去掉。</li>
+</ol>
+<h2 id="十、给页面添加一个时间"><a href="#十、给页面添加一个时间" class="headerlink" title="十、给页面添加一个时间"></a>十、给页面添加一个时间</h2><p>这个我也是从网上看到的是个html5 canvas的特效，就搬过来了。</p>
+<ul>
+<li><p><code>themes\light\layout\_widget</code>中新建<code>time.ejs</code>文件，内容如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"widget tag"</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"zzsc"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>themes\light\source\js</code>下新建<code>zzsc.js</code>，内容如下(可根据自己的实际情况修改)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">$(<span class="string">'#zzsc'</span>).html(<span class="string">'&lt;canvas id="canvas"&gt;&lt;/canvas&gt;'</span>);</span><br><span class="line"><span class="keyword">var</span> WINDOW_WIDTH = <span class="number">270</span>;</span><br><span class="line">    <span class="keyword">var</span> WINDOW_HEIGHT = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">var</span> RADIUS = <span class="number">2.2</span>; <span class="comment">//球半径</span></span><br><span class="line">    <span class="keyword">var</span> NUMBER_GAP = <span class="number">3</span>; <span class="comment">//数字之间的间隙</span></span><br><span class="line">    <span class="keyword">var</span> u=<span class="number">0.65</span>; <span class="comment">//碰撞能量损耗系数</span></span><br><span class="line">    <span class="keyword">var</span> context; <span class="comment">//Canvas绘制上下文</span></span><br><span class="line">    <span class="keyword">var</span> balls = []; <span class="comment">//存储彩色的小球</span></span><br><span class="line">    <span class="keyword">const</span> colors = [<span class="string">"#33B5E5"</span>,<span class="string">"#0099CC"</span>,<span class="string">"#AA66CC"</span>,<span class="string">"#9933CC"</span>,<span class="string">"#99CC00"</span>,<span class="string">"#669900"</span>,<span class="string">"#FFBB33"</span>,<span class="string">"#FF8800"</span>,<span class="string">"#FF4444"</span>,<span class="string">"#CC0000"</span>]; <span class="comment">//彩色小球的颜色</span></span><br><span class="line">    <span class="keyword">var</span> currentNums = []; <span class="comment">//屏幕显示的8个字符</span></span><br><span class="line">    <span class="keyword">var</span> digit =</span><br><span class="line">                [</span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">                    ],<span class="comment">//0</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">                    ],<span class="comment">//1</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">                    ],<span class="comment">//2</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">                    ],<span class="comment">//3</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">                    ],<span class="comment">//4</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">                    ],<span class="comment">//5</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">                    ],<span class="comment">//6</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">                    ],<span class="comment">//7</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">                    ],<span class="comment">//8</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">                    ],<span class="comment">//9</span></span><br><span class="line">                    [</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                        [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">                    ]<span class="comment">//:</span></span><br><span class="line">                ];</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">drawDatetime</span>(<span class="params">cxt</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> nums = [];</span><br><span class="line"></span><br><span class="line">      context.fillStyle=<span class="string">"#005eac"</span></span><br><span class="line">      <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">      <span class="keyword">var</span> offsetX = <span class="number">25</span>, offsetY = <span class="number">15</span>;</span><br><span class="line">      <span class="keyword">var</span> hours = date.getHours();</span><br><span class="line">      <span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(hours/<span class="number">10</span>);</span><br><span class="line">      <span class="keyword">var</span> num2 = hours%<span class="number">10</span>;</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: num1&#125;);</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: num2&#125;);</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: <span class="number">10</span>&#125;); <span class="comment">//冒号</span></span><br><span class="line">      <span class="keyword">var</span> minutes = date.getMinutes();</span><br><span class="line">      <span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(minutes/<span class="number">10</span>);</span><br><span class="line">      <span class="keyword">var</span> num2 = minutes%<span class="number">10</span>;</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: num1&#125;);</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: num2&#125;);</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: <span class="number">10</span>&#125;); <span class="comment">//冒号</span></span><br><span class="line">      <span class="keyword">var</span> seconds = date.getSeconds();</span><br><span class="line">      <span class="keyword">var</span> num1 = <span class="built_in">Math</span>.floor(seconds/<span class="number">10</span>);</span><br><span class="line">      <span class="keyword">var</span> num2 = seconds%<span class="number">10</span>;</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: num1&#125;);</span><br><span class="line">      nums.push(&#123;<span class="attr">num</span>: num2&#125;);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>;x&lt;nums.length;x++)&#123;</span><br><span class="line">        nums[x].offsetX = offsetX;</span><br><span class="line">        offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);</span><br><span class="line">        <span class="comment">//两个数字连一块，应该间隔一些距离</span></span><br><span class="line">        <span class="keyword">if</span>(x&lt;nums.length<span class="number">-1</span>)&#123;</span><br><span class="line">          <span class="keyword">if</span>((nums[x].num!=<span class="number">10</span>) &amp;&amp;(nums[x+<span class="number">1</span>].num!=<span class="number">10</span>))&#123;</span><br><span class="line">            offsetX+=NUMBER_GAP;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//说明这是初始化</span></span><br><span class="line">      <span class="keyword">if</span>(currentNums.length ==<span class="number">0</span>)&#123;</span><br><span class="line">        currentNums = nums;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//进行比较</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> index = <span class="number">0</span>;index&lt;currentNums.length;index++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(currentNums[index].num!=nums[index].num)&#123;</span><br><span class="line">            <span class="comment">//不一样时，添加彩色小球</span></span><br><span class="line">            addBalls(nums[index]);</span><br><span class="line">            currentNums[index].num=nums[index].num;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      renderBalls(cxt);</span><br><span class="line">      updateBalls();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">addBalls</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> num = item.num;</span><br><span class="line">      <span class="keyword">var</span> numMatrix = digit[num];</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> y = <span class="number">0</span>;y&lt;numMatrix.length;y++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>;x&lt;numMatrix[y].length;x++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(numMatrix[y][x]==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> ball=&#123;</span><br><span class="line">              offsetX:item.offsetX+RADIUS+RADIUS*<span class="number">2</span>*x,</span><br><span class="line">              offsetY:<span class="number">30</span>+RADIUS+RADIUS*<span class="number">2</span>*y,</span><br><span class="line">              color:colors[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*colors.length)],</span><br><span class="line">              g:<span class="number">1.5</span>+<span class="built_in">Math</span>.random(),</span><br><span class="line">              vx:<span class="built_in">Math</span>.pow(<span class="number">-1</span>, <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random()*<span class="number">10</span>))*<span class="number">4</span>+<span class="built_in">Math</span>.random(),</span><br><span class="line">              vy:<span class="number">-5</span></span><br><span class="line">            &#125;</span><br><span class="line">            balls.push(ball);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">renderBalls</span>(<span class="params">cxt</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> index = <span class="number">0</span>;index&lt;balls.length;index++)&#123;</span><br><span class="line">        cxt.beginPath();</span><br><span class="line">        cxt.fillStyle=balls[index].color;</span><br><span class="line">        cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI);</span><br><span class="line">        cxt.fill();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">updateBalls</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> i =<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> index = <span class="number">0</span>;index&lt;balls.length;index++)&#123;</span><br><span class="line">        <span class="keyword">var</span> ball = balls[index];</span><br><span class="line">        ball.offsetX += ball.vx;</span><br><span class="line">        ball.offsetY += ball.vy;</span><br><span class="line">        ball.vy+=ball.g;</span><br><span class="line">        <span class="keyword">if</span>(ball.offsetY &gt; (WINDOW_HEIGHT-RADIUS))&#123;</span><br><span class="line">          ball.offsetY= WINDOW_HEIGHT-RADIUS;</span><br><span class="line">          ball.vy=-ball.vy*u;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ball.offsetX&gt;RADIUS&amp;&amp;ball.offsetX&lt;(WINDOW_WIDTH-RADIUS))&#123;</span><br><span class="line"></span><br><span class="line">          balls[i]=balls[index];</span><br><span class="line">          i++;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//去除出边界的球</span></span><br><span class="line">      <span class="keyword">for</span>(;i&lt;balls.length;i++)&#123;</span><br><span class="line">        balls.pop();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">drawSingleNumber</span>(<span class="params">offsetX, offsetY, num, cxt</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> numMatrix = digit[num];</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> y = <span class="number">0</span>;y&lt;numMatrix.length;y++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>;x&lt;numMatrix[y].length;x++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(numMatrix[y][x]==<span class="number">1</span>)&#123;</span><br><span class="line">            cxt.beginPath();</span><br><span class="line">            cxt.arc(offsetX+RADIUS+RADIUS*<span class="number">2</span>*x,offsetY+RADIUS+RADIUS*<span class="number">2</span>*y,RADIUS,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI);</span><br><span class="line">            cxt.fill();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      cxt.beginPath();</span><br><span class="line">      offsetX += numMatrix[<span class="number">0</span>].length*RADIUS*<span class="number">2</span>;</span><br><span class="line">      <span class="keyword">return</span> offsetX;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    canvas.width=WINDOW_WIDTH;</span><br><span class="line">    canvas.height=WINDOW_HEIGHT;</span><br><span class="line">    context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//记录当前绘制的时刻</span></span><br><span class="line">    <span class="keyword">var</span> currentDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">    setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">//清空整个Canvas，重新绘制内容</span></span><br><span class="line">      context.clearRect(<span class="number">0</span>, <span class="number">0</span>, context.canvas.width, context.canvas.height);</span><br><span class="line">      drawDatetime(context);</span><br><span class="line">    &#125;, <span class="number">50</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>themes\light\_config.yml</code>中的<code>widgets:</code>下，加入如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- time</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="http://hexo.io/" target="_blank" rel="noopener">hexo</a></li>
+<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="noopener">hexo你的博客</a></li>
+<li><a href="http://blog.csdn.net/itmyhome1990/article/details/43489361" target="_blank" rel="noopener">hexo博客优化</a></li>
+<li><a href="http://blog.csdn.net/itmyhome1990/article/details/43536171" target="_blank" rel="noopener">hexo中使用多说评论系统</a></li>
+<li><a href="http://wuchong.me/blog/2014/01/08/hexo-scrollup/" target="_blank" rel="noopener">Hexo博客优化：添加返回顶部功能</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/优化/" rel="tag"># 优化</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/07/hexo-domain/" rel="next" title="购买域名，设置DNS">
+                <i class="fa fa-chevron-left"></i> 购买域名，设置DNS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/09/goodmusic/" rel="prev" title="给大家分享几首歌">
+                给大家分享几首歌 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/image/picture/avatar.jpg" alt="Russell Mars">
+          <p class="site-author-name" itemprop="name">Russell Mars</p>
+           
+              <p class="site-description motion-element" itemprop="description">世界很美，而你正好有空！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、修改默认日期显示格式"><span class="nav-number">1.</span> <span class="nav-text">一、修改默认日期显示格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、在导航栏中添加关于"><span class="nav-number">2.</span> <span class="nav-text">二、在导航栏中添加关于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、添加友情链接"><span class="nav-number">3.</span> <span class="nav-text">三、添加友情链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、添加其他的widget"><span class="nav-number">4.</span> <span class="nav-text">四、添加其他的widget</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、添加“多说”评论"><span class="nav-number">5.</span> <span class="nav-text">五、添加“多说”评论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获得“多说”代码"><span class="nav-number">5.1.</span> <span class="nav-text">1.获得“多说”代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-替换模板"><span class="nav-number">5.2.</span> <span class="nav-text">2.替换模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-添加配置"><span class="nav-number">5.3.</span> <span class="nav-text">3.添加配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、分享功能"><span class="nav-number">6.</span> <span class="nav-text">六、分享功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、换机器"><span class="nav-number">7.</span> <span class="nav-text">七、换机器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、回到顶部按钮"><span class="nav-number">8.</span> <span class="nav-text">八、回到顶部按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、添加标签评论"><span class="nav-number">9.</span> <span class="nav-text">九、添加标签评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、给页面添加一个时间"><span class="nav-number">10.</span> <span class="nav-text">十、给页面添加一个时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">11.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Russell Mars</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

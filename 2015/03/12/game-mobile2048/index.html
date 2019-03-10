@@ -1,0 +1,813 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="game,编程,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="上一篇博客已经介绍过网页版的2048了，源代码也有提供，而这篇博客主要讲讲2048这个游戏的进阶。">
+<meta name="keywords" content="game,编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动版的2048">
+<meta property="og:url" content="http://russellmars.github.io/2015/03/12/game-mobile2048/index.html">
+<meta property="og:site_name" content="二十几岁的你">
+<meta property="og:description" content="上一篇博客已经介绍过网页版的2048了，源代码也有提供，而这篇博客主要讲讲2048这个游戏的进阶。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-10T02:18:00.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动版的2048">
+<meta name="twitter:description" content="上一篇博客已经介绍过网页版的2048了，源代码也有提供，而这篇博客主要讲讲2048这个游戏的进阶。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://russellmars.github.io/2015/03/12/game-mobile2048/">
+
+
+
+
+
+  <title> 移动版的2048 | 二十几岁的你 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0cb80430be042d0e64ac47b4e4886fb9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">二十几岁的你</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">没有梦想，何必远方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'obSA9H9BoiM58jQ6Vp4V','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://russellmars.github.io/2015/03/12/game-mobile2048/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Russell Mars">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/picture/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二十几岁的你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动版的2048
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-12T13:52:44+00:00">
+                2015-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/game/" itemprop="url" rel="index">
+                    <span itemprop="name">game</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一篇博客已经介绍过网页版的2048了，源代码也有提供，而这篇博客主要讲讲2048这个游戏的进阶。<br><a id="more"></a><br>上一版的2048已经能完美的运行在pc版的浏览器中了，但是不支持在手机端的愉快的玩耍，这一个问题主要分两个方面解决，详细参考慕课网<a href="http://www.imooc.com/learn/76" target="_blank" rel="noopener">教学视频</a>，点击<a href="http://hzhyiyy.com/game/mobile2048/" target="_blank" rel="noopener">mobile2048</a>试玩。</p>
+<ul>
+<li>屏幕适应问题</li>
+<li>触摸滑动事件</li>
+</ul>
+<h2 id="屏幕适应问题"><a href="#屏幕适应问题" class="headerlink" title="屏幕适应问题"></a>屏幕适应问题</h2><p>如果想要你的游戏既能够在pc中的浏览器中看起来很舒服，并且在各种流行的屏幕尺寸的手机上也也能完美的显示，就的考虑一个问题，屏幕自适应问题，也称响应式布局。<br>首先，当你想要适应各种屏幕尺寸的话，你所显示的游戏大小就不能是一个定死的常量了，而是一个根据屏幕而变化的变量。<br>我在<code>support2048.js</code>中加入了四个全局变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">documentWidth = <span class="built_in">window</span>.screen.availWidth;</span><br><span class="line">gridContainerWidth = <span class="number">0.92</span> * documentWidth;</span><br><span class="line">cellSideLength = <span class="number">0.18</span> * documentWidth;</span><br><span class="line">cellSpace = <span class="number">0.04</span> * documentWidth;</span><br></pre></td></tr></table></figure></p>
+<p>documentWidth：网页文档宽度，差不多也就是你的手机屏幕的宽度。<br>gridContainerWidth：整个游戏区域的宽度。<br>cellSideLength：每个数字格子的宽度。<br>cellSpace：每个格子之间的间隙距离。</p>
+<p>在我们所有的js的方法中的所有涉及到直接写像素值得地方都要注意是否需要修改成我们的变量了。我们从<code>main2048.js</code>开始<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line">    prepareForMobile();</span><br><span class="line">    newgame();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>增加一个函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function prepareForMobile()&#123;</span><br><span class="line"></span><br><span class="line">    if(documentWidth &gt; 500)&#123;</span><br><span class="line">        gridContainerWidth = 500;</span><br><span class="line">        cellSpace = 20;</span><br><span class="line">        cellSideLength = 100;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $(&quot;#grid-container&quot;).css(&quot;width&quot;, gridContainerWidth - 2*cellSpace);</span><br><span class="line">    $(&quot;#grid-container&quot;).css(&quot;height&quot;, gridContainerWidth - 2*cellSpace);</span><br><span class="line">    $(&quot;#grid-container&quot;).css(&quot;padding&quot;, cellSpace);</span><br><span class="line">    $(&quot;#grid-container&quot;).css(&quot;border-radius&quot;, 0.02 * gridContainerWidth);</span><br><span class="line"></span><br><span class="line">    $(&quot;.grid-cell&quot;).css(&quot;width&quot;, cellSideLength);</span><br><span class="line">    $(&quot;.grid-cell&quot;).css(&quot;height&quot;, cellSideLength);</span><br><span class="line">    $(&quot;.grid-cell&quot;).css(&quot;border-radius&quot;, 0.02 * cellSideLength);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在init的方法中使用了如下语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gridCell.css(&quot;top&quot;, getPosTop(i, j));</span><br><span class="line">gridCell.css(&quot;left&quot;, getPosLeft(i, j));</span><br></pre></td></tr></table></figure></p>
+<p>故相应要修改其中的两个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function getPosTop(i, j)&#123;</span><br><span class="line">    return cellSpace + i*(cellSideLength + cellSpace);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function getPosLeft(i, j)&#123;</span><br><span class="line">    return cellSpace + j*(cellSideLength + cellSpace);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>还有<code>updateBoardView()</code>方法也有很多需要修改的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function updateBoardView()&#123;</span><br><span class="line">    $(&quot;.number-cell&quot;).remove();</span><br><span class="line">    for(var i = 0; i &lt; 4; i++)&#123;</span><br><span class="line">        for(var j = 0; j &lt; 4; j++)&#123;</span><br><span class="line">            $(&quot;#grid-container&quot;).append(&apos;&lt;div class=&quot;number-cell&quot; id=&quot;number-cell-&apos; + i+ &apos;-&apos; + j + &apos;&quot;&gt;&lt;/div&gt;&apos;);</span><br><span class="line">            var theNumberCell = $(&quot;#number-cell-&quot;+ i + &quot;-&quot; + j);</span><br><span class="line"></span><br><span class="line">            if(board[i][j] == 0)&#123;</span><br><span class="line">                theNumberCell.css(&quot;width&quot;, &quot;0px&quot;);</span><br><span class="line">                theNumberCell.css(&quot;height&quot;, &quot;0px&quot;);</span><br><span class="line">                theNumberCell.css(&quot;top&quot;, getPosTop(i, j) + cellSideLength/2);</span><br><span class="line">                theNumberCell.css(&quot;left&quot;, getPosLeft(i, j) + cellSideLength/2);</span><br><span class="line">                theNumberCell.css(&quot;font-size&quot;, 0.6 * cellSideLength + &quot;px&quot;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                theNumberCell.css(&quot;width&quot;, cellSideLength);</span><br><span class="line">                theNumberCell.css(&quot;height&quot;, cellSideLength);</span><br><span class="line">                theNumberCell.css(&quot;top&quot;, getPosTop(i, j));</span><br><span class="line">                theNumberCell.css(&quot;left&quot;, getPosLeft(i, j));</span><br><span class="line">                theNumberCell.css(&quot;background-color&quot;, getNumberBackgroundColor(board[i][j]));</span><br><span class="line">                theNumberCell.css(&quot;color&quot;, getNumberColor(board[i][j]));</span><br><span class="line">                theNumberCell.text(getNumberText(board[i][j]));</span><br><span class="line">                theNumberCell.css(&quot;font-size&quot;, getNumberFontSize(board[i][j]) + &quot;px&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            hasConflicted[i][j] = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $(&quot;.number-cell&quot;).css(&quot;line-height&quot;, cellSideLength + &quot;px&quot;);</span><br><span class="line">    $(&quot;.number-cell&quot;).css(&quot;border-radius&quot;, 0.02 * cellSideLength);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我在里面还单独添加了一个方法getNumberFontSize(number),用于不同数字时的文字大小显示，我把它放在了support2048.js中了，具体如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function getNumberFontSize(number)&#123;</span><br><span class="line">    switch (number)&#123;</span><br><span class="line">        case 2 : return 0.6 * cellSideLength; break;</span><br><span class="line">        case 4 : return 0.6 * cellSideLength; break;</span><br><span class="line">        case 8 : return 0.6 * cellSideLength; break;</span><br><span class="line">        case 16 : return 0.5 * cellSideLength; break;</span><br><span class="line">        case 32 : return 0.5 * cellSideLength; break;</span><br><span class="line">        case 64 : return 0.5 * cellSideLength; break;</span><br><span class="line">        case 128 : return 0.4 * cellSideLength; break;</span><br><span class="line">        case 256 : return 0.4 * cellSideLength; break;</span><br><span class="line">        case 512 : return 0.4 * cellSideLength; break;</span><br><span class="line">        case 1024 : return 0.35 * cellSideLength; break;</span><br><span class="line">        case 2048 : return 0.35 * cellSideLength; break;</span><br><span class="line">        case 4096 : return 0.35 * cellSideLength; break;</span><br><span class="line">        case 8192 : return 0.35 * cellSideLength; break;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0.3 * cellSideLength;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后就是显示动画效果的方法了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function showNumberWithAnimation(i, j, randNumber)&#123;</span><br><span class="line">    var numberCell = $(&quot;#number-cell-&quot; + i + &quot;-&quot; + j);</span><br><span class="line">    numberCell.css(&quot;background-color&quot;, getNumberBackgroundColor(randNumber));</span><br><span class="line">    numberCell.css(&quot;color&quot;, getNumberColor(randNumber));</span><br><span class="line">    numberCell.text(getNumberText(randNumber));</span><br><span class="line"></span><br><span class="line">    numberCell.animate(&#123;</span><br><span class="line">        width: cellSideLength,</span><br><span class="line">        height: cellSideLength,</span><br><span class="line">        top: getPosTop(i, j),</span><br><span class="line">        left: getPosLeft(i, j)</span><br><span class="line">    &#125;, 100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function showMoveAnimation(fromx, fromy, tox, toy)&#123;</span><br><span class="line">    var numCell = $(&quot;#number-cell-&quot;+fromx+&quot;-&quot;+fromy);</span><br><span class="line">    numCell.animate(&#123;</span><br><span class="line">        top : getPosTop(tox, toy),</span><br><span class="line">        left : getPosLeft(tox, toy)</span><br><span class="line">    &#125;,200);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>屏幕适应的大体上就那么多需要修改了，当然还有些细节，可能我没有注意到，在文章最下方我会给出源码。</p>
+<h2 id="触摸滑动事件"><a href="#触摸滑动事件" class="headerlink" title="触摸滑动事件"></a>触摸滑动事件</h2><p>在pc上的浏览器当然可以使用键盘操作游戏，但是在手机端就没有键盘了，所以就需要添加滑动的监听事件。<br>恰好原生的js就支持touch事件，这里我们主要用到touchstart和touchend事件，当然还有一个touchmove事件，顾名思义，这三个事件分别代表触摸开始，触摸结束，以及滑动时。<br>首先我们先定义4个全局的变量，分别代表触摸开始的x，y坐标，和触摸结束的x，y坐标。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var startx = 0;</span><br><span class="line">var starty = 0;</span><br><span class="line">var endx = 0;</span><br><span class="line">var endy = 0;</span><br></pre></td></tr></table></figure></p>
+<p>然后就是对touchstart和touchend事件的监听<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    startx = event.touches[<span class="number">0</span>].pageX;</span><br><span class="line">    starty = event.touches[<span class="number">0</span>].pageY;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"touchmove"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//据说是防止一个android某版本的一个bug，需要监听touchmove，并使用如下语句。</span></span><br><span class="line">    event.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">/*监听touchStart事件*/</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"touchend"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    endx = event.changedTouches[<span class="number">0</span>].pageX;</span><br><span class="line">    endy = event.changedTouches[<span class="number">0</span>].pageY;</span><br><span class="line">    <span class="keyword">var</span> deltax = endx - startx;</span><br><span class="line">    <span class="keyword">var</span> deltay = endy - starty;</span><br><span class="line">    <span class="comment">//当触摸的跨度大于屏幕宽度的0.2时才算是一次滑动</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.abs(deltax) &lt; <span class="number">0.2</span> * documentWidth &amp;&amp; <span class="built_in">Math</span>.abs(deltay) &lt; <span class="number">0.2</span> * documentWidth)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> canMove = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.abs(deltax) &gt;= <span class="built_in">Math</span>.abs(deltay))&#123;  <span class="comment">//x</span></span><br><span class="line">        <span class="keyword">if</span>(deltax &gt; <span class="number">0</span>)&#123;  <span class="comment">//move right</span></span><br><span class="line">            <span class="keyword">if</span>(moveRight())&#123;</span><br><span class="line">                canMove = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//move left</span></span><br><span class="line">            <span class="keyword">if</span>(moveLeft())&#123;</span><br><span class="line">                canMove = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  <span class="comment">//y</span></span><br><span class="line">        <span class="keyword">if</span>(deltay &gt; <span class="number">0</span>)&#123;  <span class="comment">//move down</span></span><br><span class="line">            <span class="keyword">if</span>(moveDown())&#123;</span><br><span class="line">                canMove = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">//move up</span></span><br><span class="line">            <span class="keyword">if</span>(moveUp())&#123;</span><br><span class="line">                canMove = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(canMove)&#123;</span><br><span class="line">        setTimeout(<span class="string">"generateOneNumber()"</span>, <span class="number">210</span>);</span><br><span class="line">        setTimeout(<span class="string">"isgameover()"</span>, <span class="number">300</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>需要修改的地方大概就那么多，当然可能有些地方在hmtl和css中我都做了些微调，有些没有照顾到的地方，还请见谅。下面我附上我的新改进的2048的源码</p>
+<h2 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h2><p>源代码我已经放在我的github中了，下载请点击<a href="https://github.com/hzhyiyy/mobile2048" target="_blank" rel="noopener">mobile2048</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/game/" rel="tag"># game</a>
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/09/game-2048/" rel="next" title="2048初体验">
+                <i class="fa fa-chevron-left"></i> 2048初体验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/18/dream-toWestbrook/" rel="prev" title="给最叼的威少">
+                给最叼的威少 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/image/picture/avatar.jpg" alt="Russell Mars">
+          <p class="site-author-name" itemprop="name">Russell Mars</p>
+           
+              <p class="site-description motion-element" itemprop="description">世界很美，而你正好有空！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕适应问题"><span class="nav-number">1.</span> <span class="nav-text">屏幕适应问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触摸滑动事件"><span class="nav-number">2.</span> <span class="nav-text">触摸滑动事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码下载"><span class="nav-number">3.</span> <span class="nav-text">源码下载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Russell Mars</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
