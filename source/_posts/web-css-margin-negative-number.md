@@ -57,26 +57,25 @@ margin负值平常用的比较少，最近写一个盒子上流式布局，加�
 ```
 ``` css
 .list {
-    margin-top: 0.1rem;
-    /* width: inherit; */
-    width: 361px;
-    overflow: hidden;
-    background: green;
-  }
-  .list-wrapper {
-    margin-right: -10px;
-    margin-top: -10px;
-  }
-  .item {
-    display: inline-block;
-    padding: 5px 12px;
-    background: red;
-    font-size: 14px;
-    color: #212121;
-    border-radius: 1rem;
-    margin-right: 10px;
-    margin-top: 10px;
-  }
+  /* width: inherit; */
+  width: 361px;
+  overflow: hidden;
+  background: green;
+}
+.list-wrapper {
+  margin-right: -10px;
+  margin-top: -10px;
+}
+.item {
+  display: inline-block;
+  padding: 5px 12px;
+  background: red;
+  font-size: 14px;
+  color: #212121;
+  border-radius: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
 ```
 ![2](/image/2019/02/web-css-margin-negative-number/2.png)
 
